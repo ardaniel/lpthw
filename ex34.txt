@@ -1,0 +1,28 @@
+animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'platypus']
+
+1. The animal at 1 == 'python'
+2. The third animal == 'peacock'
+3. The 1st animal == 'bear'
+4. The animal at 3 == 'kangaroo'
+5. The 5th animal == 'whale'
+6. The animal at 2 == 'peacock'
+7. The 6th animal == 'platypus'
+8. The animal at 4 == 'whale'
+
+>>> animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'platypus']
+>>> animals[1]
+'python'
+>>> animals[2]
+'peacock'
+>>> animals[0]
+'bear'
+>>> animals[3]
+'kangaroo'
+>>> animals[4]
+'whale'
+>>> animals[2]
+'peacock'
+>>> animals[5]
+'platypus'
+>>> animals[4]
+'whale'

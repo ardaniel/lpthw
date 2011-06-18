@@ -1,0 +1,22 @@
+Game Design:
+
+MainHub
+
+main space station hub
+guide here
+go to DiplomatRoom
+
+DiplomatRoom
+
+get an envelope
+get shot (death)
+move on to AlienRoom
+
+AlienRoom
+give envelope to alien
+don't give envelope to alien
+
+
+
+death
+quips + exit

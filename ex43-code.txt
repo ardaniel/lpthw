@@ -1,0 +1,26 @@
+class MainHub(object):
+	def room_setup(self):
+		room_desc = """
+		This is the main hub of the space station. There is a 
+		guide here.  He tells you to go north to the Diplomatic Office.
+		"""
+		print room_desc
+		
+		prompt = raw_input("> ")
+		
+		if prompt == "go north":
+			print "The guide smiles and you head north."
+			return 'DiplomatRoom'
+
+		else:
+			print "The guide looks at you and gestures north again."
+			room_setup()
+		
+#class DiplomatRoom(object):
+
+#class AlienRoom(object):
+
+#class Engine(object):
+
+hub = MainHub()
+hub.room_setup()
