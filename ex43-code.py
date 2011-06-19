@@ -1,3 +1,7 @@
+# Basic setup for Exercise 43's adventure game.
+# Generating all my room setups first,
+# then hacking on the engine and mapping....
+
 from random import choice
 
 class MainHub(object):
@@ -66,7 +70,7 @@ It levels a blaster at you and fires."""
 		print room_desc
 		evade = raw_input("> ")
 		
-		if "dodge" or "move" in evade:
+		if ("dodge" or "move") and not ("don't" or "do not") in evade:
 			print "You dodge expertly.  You spot a shiny plaque on the wall near your head."
 			print "What are you going to do now? The robot prepares to fire again."
 			
@@ -75,8 +79,8 @@ It levels a blaster at you and fires."""
 			if "plaque" in grab:
 				print "You hold the plaque in front of you as the robot fires."
 				print "The blast strikes the plaque, bounces off, and hits the robot."
-				print "The robot explodes, leaving a chip behind. You pocket it and go"
-				print "back to the main hub.:"
+				print "The robot explodes, leaving a chip behind. You pocket the chip and go"
+				print "back to the main hub."
 				return 'MainHub2'
 			
 			else:
