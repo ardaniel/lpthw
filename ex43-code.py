@@ -37,14 +37,22 @@ class DiplomatRoom(object):
 			print "and you are sucked into a tube and vented into space, where you die."
 			return 'death'
 		
-#class AlienRoom(object):
+class AlienRoom(object):
+	def room_setup(self):
+		room_desc = """This room is hot, and a little damp, and contains the biggest,
+leafiest alien you've ever seen.  It extends a tendril towards you inquiringly."""
 
-#class Engine(object):
-#	def __init__(self, start):
-		# set up the codeword for the diplomat's room
-#		codelist = ['bunny', 'turtle', 'tribble', 'horta', 'cookie']
-#		codeword = choice(codelist)
-
+		envelope = raw_input("> ")
+		
+		if envelope == "give it the envelope":
+			print "You think the alien looks pleased; it takes the envelope and"
+			print "promptly digests it.  One of its vines points you back to the diplomat's office."
+			return 'DiplomatOffice2'
+			
+		else:
+			print "The alien shrugs and eats it, the faster to obtain the envelope."
+			print "You might be pooped out in 500 years."
+			return 'death'
 
 diplo = DiplomatRoom()
 diplo.room_setup()
