@@ -3,6 +3,8 @@
 # then hacking on the engine and mapping....
 
 from sys import exit
+from random import randint
+import inspect
 
 class MainHub(object):
 
@@ -43,7 +45,7 @@ She smiles and asks you for the codeword.
 		else:
 			print 'She looks appalled and pushes a button on her desk. "Intruder!" she yells,'
 			print "and you are sucked into a tube and vented into space, where you die."
-			return 'death'
+			return 'Death'
 		
 class AlienRoom(object):
 	def room_setup(self):
@@ -59,14 +61,14 @@ leafiest alien you've ever seen.  It extends a tendril towards you inquiringly.
 			print "You think the alien looks pleased; it takes the envelope and"
 			print "promptly digests it.  One of its vines points you back to the diplomat's office.\n"
 			print "(You think you hear a noise in there...)"
-			return 'DiplomatOffice2'
+			return 'DiplomatRoom2'
 			
 		else:
 			print "The alien shrugs and eats you, the faster to obtain the envelope."
 			print "You might be pooped out in 500 years."
-			return 'death'
+			return 'Death'
 
-class DiplomatOffice2(object):
+class DiplomatRoom2(object):
 	def room_setup(self):
 		room_desc = """
 Back in the diplomat's office, you find that she's been replaced with a robot.
@@ -93,13 +95,13 @@ The robot levels a blaster at you and fires.
 				print "The robot shoots you dead.  Station security finds"
 				print "your corpse and assumes you killed the diplomat,"
 				print "making you a posthumous assassin.  Way to go, pal."
-				return 'death'
+				return 'Death'
 
 		else:
 			print "You fail to dodge. The robot blows a hole in your head."
 			print "Everyone assumes you killed the diplomat. Alien relations"
 			print "are set back a billion years because you didn't move. You suck."
-			return 'death'
+			return 'Death'
 
 class MainHub2(object):
 	def room_setup(self):
@@ -121,7 +123,7 @@ diplomat.  All three of them hold out their hand for the chip.  Whom do you give
 			print "The robot takes the chip, shoots you, kidnaps the diplomat,"
 			print "and runs for the door, covered by the traitorous guide!"
 			print "Way to go, idiot-- didn't that other robot try to kill you?"
-			return 'death'
+			return 'Death'
 		
 		elif "diplomat" in give_chip:
 			print "The diplomat takes the chip, then turns around and disables"
@@ -136,28 +138,28 @@ You pile out the side door with the guide and the diplomat.  There is a four-man
 pod here. As you arrive, the alien opens the pod's hatch and gestures at you.
 """
 
-	print room_desc
-	pod_enter = raw_input("> ")
+		print room_desc
+		pod_enter = raw_input("> ")
 	
-	if "enter" and "pod" in pod_enter:
-		print "You pile into the pod and shut the hatch.  The diplomat puts the chip"
-		print "into the navigation computer and presses a button."
-		print "You soar into space, leaving the station and its murderous robots"
-		print "behind.  Next stop, the alien homeworld!"
-		exit(1)
-	
-	elif "do not" or "don't" in pod_enter:
-		print "You hesitate as the others enter the pod."
-		print "As they beckon you towards the hatch, robots enter the room"
-		print "and shoot you dead.  The others, at least, manage to escape."
-		return 'death'
+		if "enter" and "pod" in pod_enter:
+			print "You pile into the pod and shut the hatch.  The diplomat puts the chip"
+			print "into the navigation computer and presses a button."
+			print "You soar into space, leaving the station and its murderous robots"
+			print "behind.  Next stop, the alien homeworld!"
+			return 'Victory'
 		
-	else:
-		print "The alien gestures again, more intently."
-		return 'SideDoor'
+		elif "do not" or "don't" in pod_enter:
+			print "You hesitate as the others enter the pod."
+			print "As they beckon you towards the hatch, robots enter the room"
+			print "and shoot you dead.  The others, at least, manage to escape."
+			return 'Death'
+		
+		else:
+			print "The alien gestures again, more intently."
+			return 'SideDoor'
 
-class death(object):
-	def death(self):
+class Death(object):
+	def room_setup(self):
 		self.quips = [
 			"Well, you picked a bad day to stop sniffing space glue.",
 			"You came, you saw, you messed up and died.",
@@ -166,4 +168,16 @@ class death(object):
 			]
 			
 		print self.quips[randint(0, len(self.quips)-1)]
+		exit(1)
+		
+class Victory(object):
+	def room_setup(self):
+		self.quips = [
+			"Well, looks like you've got this down.",
+			"Way to go! You probably wrote this game.",
+			"Who's the big bad space hero today?",
+			"Whose house? Your house."
+			]
+		
+		print self.quips[randint(0,len(self.quips)-1)]
 		exit(1)
