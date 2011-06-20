@@ -19,13 +19,10 @@ class Engine(object):
 		'Death': rooms.Death()
 		}	
 		
-		next = self.start
-		
+		next = self.start.room_setup()
+
 		while True:
-			if next == self.start:
-				next = next.room_setup()
-			else:
-				next = LOCATIONS[next].room_setup()
+			next = LOCATIONS[next].room_setup()
 				
 			
 the_game = Engine(rooms.MainHub())
